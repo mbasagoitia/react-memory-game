@@ -8,28 +8,6 @@ class App extends Component {
     this.state = {
       score: 0,
       highScore: 0,
-      memoryItems: [
-        { title: "Bear Cub", viewed: "false", src: "./img/bear-cub.jpg" },
-        { title: "Bunny", viewed: "false", src: "./img/bunny.jpg" },
-        { title: "Duckling", viewed: "false", src: "./img/duckling.jpg" },
-        { title: "Elephant", viewed: "false", src: "./img/elephant.jpg" },
-        { title: "Fawn", viewed: "false", src: "./img/fawn.jpg" },
-        { title: "Foal", viewed: "false", src: "./img/foal.jpg" },
-        { title: "Fox", viewed: "false", src: "./img/fox.jpg" },
-        { title: "Giraffe", viewed: "false", src: "./img/giraffe.jpg" },
-        { title: "Goat", viewed: "false", src: "./img/goat.jpg" },
-        { title: "Hedgehog", viewed: "false", src: "./img/hedgehog.jpg" },
-        { title: "Kitten", viewed: "false", src: "./img/kitten.jpg" },
-        { title: "Lamb", viewed: "false", src: "./img/lamb.jpg" },
-        { title: "Lion Cub", viewed: "false", src: "./img/lion-cub.jpg" },
-        { title: "Mouse", viewed: "false", src: "./img/mouse.jpg" },
-        { title: "Owlet", viewed: "false", src: "./img/owlet.jpg" },
-        { title: "Penguin", viewed: "false", src: "./img/penguin.jpg" },
-        { title: "Puppy", viewed: "false", src: "./img/puppy.jpg" },
-        { title: "Raccoon", viewed: "false", src: "./img/raccoon.jpg" },
-        { title: "Seal", viewed: "false", src: "./img/seal.jpg" },
-        { title: "Tiger", viewed: "false", src: "./img/tiger.jpg" },
-      ],
       currentIndex: Math.floor(Math.random()*20),
     }
 
@@ -40,10 +18,33 @@ class App extends Component {
 
   }
 
+  memoryItems = [
+    { title: "Bear Cub", viewed: "false", src: "/img/bear-cub.jpg"},
+    { title: "Bunny", viewed: "false", src: "/img/bunny.jpg" },
+    { title: "Duckling", viewed: "false", src: "/img/duckling.jpg" },
+    { title: "Elephant", viewed: "false", src: "/img/elephant.jpg" },
+    { title: "Fawn", viewed: "false", src: "/img/fawn.jpg" },
+    { title: "Foal", viewed: "false", src: "/img/foal.jpg" },
+    { title: "Fox", viewed: "false", src: "/img/fox.jpg" },
+    { title: "Giraffe", viewed: "false", src: "/img/giraffe.jpg" },
+    { title: "Goat", viewed: "false", src: "/img/goat.jpg" },
+    { title: "Hedgehog", viewed: "false", src: "/img/hedgehog.jpg" },
+    { title: "Kitten", viewed: "false", src: "/img/kitten.jpg" },
+    { title: "Lamb", viewed: "false", src: "/img/lamb.jpg" },
+    { title: "Lion Cub", viewed: "false", src: "/img/lion-cub.jpg" },
+    { title: "Mouse", viewed: "false", src: "/img/mouse.jpg" },
+    { title: "Owlet", viewed: "false", src: "/img/owlet.jpg" },
+    { title: "Penguin", viewed: "false", src: "/img/penguin.jpg" },
+    { title: "Puppy", viewed: "false", src: "/img/puppy.jpg" },
+    { title: "Raccoon", viewed: "false", src: "/img/raccoon.jpg" },
+    { title: "Seal", viewed: "false", src: "/img/seal.jpg" },
+    { title: "Tiger", viewed: "false", src: "/img/tiger.jpg" },
+  ]
+
   gameHasBeenWon = false;
 
   getRandomIndex () {
-    let randomIndex = Math.floor(Math.random()*(this.state.memoryItems.length));
+    let randomIndex = Math.floor(Math.random()*(this.memoryItems.length));
     this.setState({ currentIndex: randomIndex });
   }
 
@@ -61,8 +62,8 @@ class App extends Component {
 
   resetGame () {
     this.setState({ score: 0 });
-    for (let i = 0; i < this.state.memoryItems.length; i++) {
-      this.state.memoryItems[i].viewed = "false";
+    for (let i = 0; i < this.memoryItems.length; i++) {
+      this.memoryItems[i].viewed = "false";
     }
     if (this.gameHasBeenWon) {
       this.setState({highScore: 10});
@@ -76,7 +77,7 @@ class App extends Component {
     if (!gameDescription.classList.contains("hidden")) {
       gameDescription.classList.add("hidden");
     }
-    if (event.target.value === this.state.memoryItems[this.state.currentIndex].viewed) {
+    if (event.target.value === this.memoryItems[this.state.currentIndex].viewed) {
       this.setState({ score: this.state.score + 1 });
 
       if(this.state.highScore <= this.state.score) {
@@ -93,7 +94,7 @@ class App extends Component {
       this.resetGame();
     }
 
-    this.state.memoryItems[this.state.currentIndex].viewed = "true";
+    this.memoryItems[this.state.currentIndex].viewed = "true";
 
     this.getRandomIndex();
   }
@@ -116,9 +117,9 @@ class App extends Component {
       </header>
       <div id="game-area">
         <div id="cards-area">
-          <span id="img-title">{this.state.memoryItems[this.state.currentIndex].title}</span>
+          <span id="img-title">{this.memoryItems[this.state.currentIndex].title}</span>
           <div id="img-wrapper">
-            <img id="currentImg" src={this.state.memoryItems[this.state.currentIndex].src} alt={this.state.memoryItems[this.state.currentIndex].title}/>
+            <img id="currentImg" src={process.env.PUBLIC_URL + this.memoryItems[this.state.currentIndex].src} alt={this.memoryItems[this.state.currentIndex].title}/>
           </div>
         </div>
         <div id="answer-area">
