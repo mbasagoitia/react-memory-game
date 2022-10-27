@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-memory-game/static/css/main.2f0bf9af.css",
+    "main.css": "/react-memory-game/static/css/main.043b88f9.css",
     "main.js": "/react-memory-game/static/js/main.57787386.js",
     "static/js/787.d8f3d465.chunk.js": "/react-memory-game/static/js/787.d8f3d465.chunk.js",
     "index.html": "/react-memory-game/index.html",
-    "main.2f0bf9af.css.map": "/react-memory-game/static/css/main.2f0bf9af.css.map",
+    "main.043b88f9.css.map": "/react-memory-game/static/css/main.043b88f9.css.map",
     "main.57787386.js.map": "/react-memory-game/static/js/main.57787386.js.map",
     "787.d8f3d465.chunk.js.map": "/react-memory-game/static/js/787.d8f3d465.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f0bf9af.css",
+    "static/css/main.043b88f9.css",
     "static/js/main.57787386.js"
   ]
 }
