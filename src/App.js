@@ -85,6 +85,18 @@ class App extends Component {
 
   }
  
+restartGame () {
+  this.setState({ score: 0 });
+      for (let i = 0; i < this.memoryItems.length; i++) {
+        this.memoryItems[i].viewed = "false";
+      }
+      if (this.gameHasBeenWon) {
+        this.setState({highScore: 10});
+      } else {
+        this.setState({highScore: this.state.highScore});
+      }
+}
+
   updateScore(event) {
     const gameDescription = document.querySelector("#game-description");
     if (!gameDescription.classList.contains("hidden")) {
@@ -100,7 +112,7 @@ class App extends Component {
       if (this.state.score === 9) {
         this.showCongrats();
         this.gameHasBeenWon = true;
-        this.resetGame();
+        this.restartGame();
       }
 
     } else {
