@@ -61,15 +61,28 @@ class App extends Component {
   }
 
   resetGame () {
-    this.setState({ score: 0 });
-    for (let i = 0; i < this.memoryItems.length; i++) {
-      this.memoryItems[i].viewed = "false";
-    }
-    if (this.gameHasBeenWon) {
-      this.setState({highScore: 10});
-    } else {
-      this.setState({highScore: this.state.highScore});
-    }
+    const message = document.querySelector("#message");
+    message.innerHTML = "Incorrect! Resetting game...";  
+    message.classList.add("red");  
+    const cardsArea = document.querySelector("#cards-area");
+    cardsArea.classList.add("not-visible");
+
+    setTimeout(() => {
+      message.innerHTML = "Have you seen this animal before?";  
+      message.classList.remove("red"); 
+      cardsArea.classList.remove("not-visible");
+
+      this.setState({ score: 0 });
+      for (let i = 0; i < this.memoryItems.length; i++) {
+        this.memoryItems[i].viewed = "false";
+      }
+      if (this.gameHasBeenWon) {
+        this.setState({highScore: 10});
+      } else {
+        this.setState({highScore: this.state.highScore});
+      }
+    }, 3000)
+
   }
  
   updateScore(event) {
@@ -123,7 +136,7 @@ class App extends Component {
           </div>
         </div>
         <div id="answer-area">
-          <span id="question">Have you seen this animal yet?</span>
+          <span id="message">Have you seen this animal before?</span>
           <div id="buttons">
             <button type="button" id="no" className="game-button" value={false} onClick = {this.updateScore}>No</button>
             <button type="button" id="yes" className="game-button" value={true} onClick = {this.updateScore}>Yes</button>

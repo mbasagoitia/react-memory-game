@@ -90,7 +90,7 @@ body {
   height: 100%;
 }
 
-#question, #img-title {
+#message, #img-title {
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -161,6 +161,14 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+.red {
+  color: red;
+}
+
+.not-visible {
+  visibility: hidden;
 }
 
 @media (max-width: 650px) {
