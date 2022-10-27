@@ -109,8 +109,9 @@ body {
   font-family: 'Shadows Into Light', cursive;
   font-size: 1.5rem;
   text-align: center;
-  width: 6rem;
-  height: 4rem;
+  width: 4em;
+  aspect-ratio: 3/2;
+  padding: 1rem;
   font-weight: bold;
   border: 2px solid #030c42;
   border-radius: 1rem;
@@ -184,6 +185,7 @@ body {
 
   .game-button {
     font-size: 2.5rem;
+    width: 3em;
   }
 
 }
@@ -195,12 +197,27 @@ body {
     margin-top: 0;
     margin-bottom: 1rem;
   }
+
   #score, #highScore {
     width: 100%;
   }
 
-  .game-button {
-    text-align: left;
+  #buttons {
+    display: block;
   }
 
+  .game-button {
+    font-size: 2rem;
+    display: inline-block;
+    width: 40%;
+    aspect-ratio: 3/2;
+  }
+
+  #no {
+    float: left;
+  }
+
+  #yes {
+    float: right;
+  }
 }

@@ -125,8 +125,8 @@ class App extends Component {
         <div id="answer-area">
           <span id="question">Have you seen this animal yet?</span>
           <div id="buttons">
-            <button type="button" className="game-button" value={false} onClick = {this.updateScore}>No</button>
-            <button type="button" className="game-button" value={true} onClick = {this.updateScore}>Yes</button>
+            <button type="button" id="no" className="game-button" value={false} onClick = {this.updateScore}>No</button>
+            <button type="button" id="yes" className="game-button" value={true} onClick = {this.updateScore}>Yes</button>
           </div>
         </div>
       </div>
