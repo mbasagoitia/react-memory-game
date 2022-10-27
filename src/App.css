@@ -198,4 +198,9 @@ body {
   #score, #highScore {
     width: 100%;
   }
+
+  .game-button {
+    text-align: left;
+  }
+
 }
